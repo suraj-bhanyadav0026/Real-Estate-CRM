@@ -66,19 +66,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'agna_crm.wsgi.application'
 ASGI_APPLICATION = 'agna_crm.asgi.application'
 
-# Database - MongoDB
+# Database - PostgreSQL
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': config('DB_NAME', default='agnayi_crm'),
-        'CLIENT': {
-            'host': config('DB_HOST', default='mongodb'),
-            'port': config('DB_PORT', default=27017),
-            'username': config('DB_USER', default=''),
-            'password': config('DB_PASSWORD', default=''),
-            'authSource': 'admin',
-            'authMechanism': 'DEFAULT',
-        }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('POSTGRES_DB', default='agnayi_crm'),
+        'USER': config('POSTGRES_USER', default='postgres'),
+        'PASSWORD': config('POSTGRES_PASSWORD', default='postgres'),
+        'HOST': config('POSTGRES_HOST', default='localhost'),
+        'PORT': config('POSTGRES_PORT', default=5432),
     }
 }
 
